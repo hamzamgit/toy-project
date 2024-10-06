@@ -15,8 +15,5 @@ server:
 down:
 	docker-compose down
 
-flake8:
-	docker exec -it blogapp flake8 .
-
 test:
-	docker exec -it blogapp python manage.py test
+	docker exec -it blogapp pytest
