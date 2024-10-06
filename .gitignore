@@ -2,4 +2,6 @@
 vscode.
 *.pyc
 
+.env
+
 # db.sqlite3
