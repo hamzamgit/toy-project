@@ -28,6 +28,7 @@ class DashboardViewSet(viewsets.ViewSet):
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
 
     queryset = Article.objects.all()
     serializer_class_write = ArticleCreateSerializer
@@ -44,7 +45,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
         serializer = ArticleCreateSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED,)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def get_queryset(self):
         # Ensure that only the writer can access their own articles
@@ -71,7 +72,7 @@ class ArticleApprovalViewSet(viewsets.GenericViewSet):
         article.status = article_status
         article.edited_by = request.user
         article.save()
-        serializer = self.serializer(article)
+        serializer = self.serializer_class(article)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
