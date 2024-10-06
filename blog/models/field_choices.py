@@ -2,14 +2,14 @@ from django.db import models
 
 
 class ArticleStatus(models.TextChoices):
-    INACTIVE = "inactive", "INACTIVE"
+    INACTIVE = "inactive"
     # ->
-    PENDING_APPROVAL = 'pending_approval', "PENDING_APPROVAL"
+    PENDING_APPROVAL = 'pending_approval'
     # ->
-    APPROVED = "approved", "APPROVED"
+    APPROVED = "approved"
     # ->
-    REJECTED = "rejected", "REJECTED"
+    REJECTED = "rejected"
     # ->
-    QUEUED = 'queued', "QUEUED"
+    QUEUED = 'queued'
     # ->
-    PUBLISHED = "published", "PUBLISHED"
+    PUBLISHED = "published"
