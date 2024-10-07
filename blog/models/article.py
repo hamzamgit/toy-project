@@ -4,6 +4,20 @@ from core.abstracts import AuditTrailModel
 from blog.models.field_choices import ArticleStatus
 
 
+class ArticleStatus(models.TextChoices):
+    INACTIVE = "inactive"
+    # ->
+    PENDING_APPROVAL = 'pending_approval'
+    # ->
+    APPROVED = "approved"
+    # ->
+    REJECTED = "rejected"
+    # ->
+    QUEUED = 'queued'
+    # ->
+    PUBLISHED = "published"
+
+
 class Article(AuditTrailModel):
     title = models.CharField(max_length=255)
     content = models.TextField()

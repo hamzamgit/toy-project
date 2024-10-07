@@ -37,7 +37,7 @@ class WriterSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
-class ArticleApprovalSerializer(ArticleDetailSerializer):
+class ArticleApprovalSerializer(serializers.ModelSerializer):
 
     written_by = WriterSerializer(read_only=True)
 
